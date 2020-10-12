@@ -2,21 +2,21 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import dynamic from 'next/dynamic'
 
-const DynamicComponent1 = dynamic(() => import('../components/hello1'))
+const DynamicComponent1 = dynamic(() => import(/* webpackChunkName: "hello1" */'../components/hello1'))
 
 const DynamicComponent2WithCustomLoading = dynamic(
-  () => import('../components/hello2'),
+  () => import(/* webpackChunkName: "hello2"*/'../components/hello2'),
   { loading: () => <p>Loading caused by client page transition ...</p> }
 )
 
 const DynamicComponent3WithNoSSR = dynamic(
-  () => import('../components/hello3'),
+  () => import(/* webpackChunkName: "hello3"*/'../components/hello3'),
   { loading: () => <p>Loading ...</p>, ssr: false }
 )
 
-const DynamicComponent4 = dynamic(() => import('../components/hello4'))
+const DynamicComponent4 = dynamic(() => import(/* webpackChunkName: "hello4"*/'../components/hello4'))
 
-const DynamicComponent5 = dynamic(() => import('../components/hello5'))
+const DynamicComponent5 = dynamic(() => import(/* webpackChunkName: "hello5"*/'../components/hello5'))
 
 const names = ['Tim', 'Joe', 'Bel', 'Max', 'Lee']
 
